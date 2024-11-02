@@ -1,22 +1,5 @@
-FROM maven:3.8.4-openjdk-17 AS build
-WORKDIR /app
+FROM openjdk:8-jdk-alpine
+EXPOSE 8082
+ADD target/gestion-station-ski-1.0.jar gestion-station-ski-1.0.jar
+ENTRYPOINT ["java","-jar","/gestion-station-ski-1.0.jar"]
 
-# Copier le fichier pom.xml et le dossier src pour la construction
-COPY pom.xml .
-COPY src ./src
-
-# Construire l'application
-RUN mvn clean package -DskipTests
-
-# Étape 2 : Création de l'image exécutable
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-
-# Copier le JAR généré depuis l'étape de construction
-COPY --from=build /app/target/*.jar app.jar
-
-# Exposer le port sur lequel l'application écoute
-EXPOSE 8089
-
-# Commande pour exécuter l'application
-ENTRYPOINT ["java", "-jar", "app.jar"]
