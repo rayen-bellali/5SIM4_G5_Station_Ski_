@@ -32,3 +32,4 @@ volumes:
 networks:
   custom_network:
     driver: bridge
+    
