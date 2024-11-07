@@ -14,7 +14,7 @@ services:
   app-stationski:
     depends_on:
       - mysqldb
-    image: KharratRaed/gestion-station-ski:1.0
+    image: raedkharrat/gestion-station-ski:1.0
     #build : ./
     restart: on-failure
     ports:
