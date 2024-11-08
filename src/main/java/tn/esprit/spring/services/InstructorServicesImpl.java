@@ -41,13 +41,13 @@ public class InstructorServicesImpl implements IInstructorServices{
 
     @Override
     public Instructor retrieveInstructor(Long numInstructor) {
-        logger.info("Retrieving instructor with id: {}", numInstructor);
+        logger.info("Retrieving instructor with number: {}", numInstructor);
         return instructorRepository.findById(numInstructor).orElse(null);
     }
 
     @Override
     public Instructor addInstructorAndAssignToCourse(Instructor instructor, Long numCourse) {
-        logger.info("Adding instructor: {} and assigning to course with id: {}", instructor, numCourse);
+        logger.info("Adding instructor: {} and assigning to course with number: {}", instructor, numCourse);
         Course course = courseRepository.findById(numCourse).orElse(null);
         if (course != null) {
             Set<Course> courseSet = new HashSet<>();
