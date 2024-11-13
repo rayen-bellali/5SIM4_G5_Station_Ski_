@@ -22,9 +22,6 @@ public class PisteServicesImplTest {
         test.testRemovePiste();
     }
 
-
-
-
     public void setUp() {
         // Create a mock for the PisteRepository
         pisteRepository = Mockito.mock(IPisteRepository.class);
@@ -73,5 +70,4 @@ public class PisteServicesImplTest {
         pisteService.removePiste(numPiste);
         verify(pisteRepository, times(1)).deleteById(numPiste);
     }
-
 }
