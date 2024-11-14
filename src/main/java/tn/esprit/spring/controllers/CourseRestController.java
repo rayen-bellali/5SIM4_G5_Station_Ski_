@@ -22,6 +22,7 @@ public class CourseRestController {
     @PostMapping("/add")
     public Course addCourse(@RequestBody Course course){
         return  courseServices.addCourse(course);
+
     }
 
     @Operation(description = "Retrieve all Courses")
